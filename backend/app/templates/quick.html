@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a class="no_decoration" href="quick.html">Генератор случайных чисел, рандомайзер</a>
+        </h1>
+        <p class="subtitle has-text-grey is-6 mt-1">
+            до 1&thinsp;000 чисел за раз, до 999&thinsp;999&thinsp;999            </p>
+        <form name="quick" action="/quick" method="get" data-loadtext="Генерируем результаты">
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">В диапазоне</label>
+                </div>
+                <div class="field is-flex is-align-content-stretch">
+                    <div class="range_label mr-2">
+                        от
+                    </div>
+                    <div class="control">
+                        <input id="num_from" name="from" class="input has-text-centered" type="number" value="1" required  min="0" max="100" placeholder="0" autocomplete="off" onchange="change_max_count();">
+                    </div>
+                    <div class="range_label mx-2">до
+                    </div>
+                    <div class="control">
+                        <input id="num_to" name="to" class="input has-text-centered" type="number" value="100" required  min="0" max="100" placeholder="999&thinsp;999&thinsp;999" autocomplete="off" onchange="change_max_count();">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Получить</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="num_count" name="count" class="input with_numeral has-text-centered" type="number" value="1"  min="1" max="1" size="3" autocomplete="off" data-label="num_label">
+                                </div>
+                                <div class="level-item ml-1"><span id="num_label">число</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field mb-0">
+                <input name="norepeat" id="num_norepeat" type="checkbox" class="switch is-rounded is-link is-outlined"  value="1" onclick="change_max_count();">
+                <label for="num_norepeat">Без повторов</label>
+            </div>
+            <div class="field">
+                <input name="sort" id="num_sort" type="checkbox" class="switch is-rounded is-link is-outlined"  value="1">
+                <label for="num_sort">Сортировать по порядку</label>
+            </div>
+            <div class="field mb-0">
+                <div class="control">
+                    <button type="submit" class="button is-link is-fullwidth is-medium">Сгенерировать</button>
+                </div>
+            </div>
+            <input id="max_count" value="1000" type="hidden">
+        </form>
+    </div>
+</div>
+<div class="content is-size-6 form-box rnd-no-outline rnd-background-white pt-3">
+    <p class=" mb-1">Популярные комбинации чисел</p>
+    <div class="tags">
+        <span class="tag"><a href="quick_from-1-to-20-count-4-norepeat-1-sort-1.html">4&nbsp;из&nbsp;20</a></span>
+        <span class="tag"><a href="quick_from-1-to-36-count-5-norepeat-1-sort-1.html">5&nbsp;из&nbsp;36</a></span>
+        <span class="tag"><a href="quick_from-1-to-36-count-6-norepeat-1-sort-1.html">6&nbsp;из&nbsp;36</a></span>                            
+        <span class="tag"><a href="quick_from-1-to-45-count-6-norepeat-1-sort-1.html">6&nbsp;из&nbsp;45</a></span>
+        <span class="tag"><a href="quick_from-1-to-49-count-7-norepeat-1-sort-1.html">7&nbsp;из&nbsp;49</a></span>
+        <span class="tag"><a href="lottery.html">все варианты для лотерей</a></span>
+    </div>
+</div>    </div>
+   
+<div class="column">
+        <div class="container">
+                                        <a id="result_scroll"></a>
+<h2 class="title is-4">
+    Случайное число    <a class="is-size-5" title="Повторить" href="https://randomus.ru/quick?from=1&amp;to=100&amp;count=1"><span class="icon"><svg class="svg-inline--fa fa-rotate-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rotate-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"></path></svg><!-- <i class="fas fa-rotate-right"></i> --></span></a>
+</h2>
+<p class="subtitle is-7 mb-3"><span class="icon icon_first mr-1"><svg class="svg-inline--fa fa-stopwatch" aria-hidden="true" focusable="false" data-prefix="far" data-icon="stopwatch" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M144 24c0-13.3 10.7-24 24-24H280c13.3 0 24 10.7 24 24s-10.7 24-24 24H248V97.4c43.4 5 82.8 23.3 113.8 50.9L391 119c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-31 31c24 33.9 38.1 75.3 38.1 120c0 114.9-93.1 208-208 208S16 418.9 16 304C16 197.2 96.4 109.3 200 97.4V48H168c-13.3 0-24-10.7-24-24zm80 440a160 160 0 1 0 0-320 160 160 0 1 0 0 320zm24-248V320c0 13.3-10.7 24-24 24s-24-10.7-24-24V216c0-13.3 10.7-24 24-24s24 10.7 24 24z"></path></svg><!-- <i class="far fa-stopwatch"></i> --></span>06.03.2026 в 13:23:47<span class="has-text-grey"> UTC+3</span></p>
+<div class="tabs is-small is-toggle mb-4 save-state is-align-items-baseline" data-tabsname="quick">
+    <ul>
+                    <li data-target="result_image" class="is-active">
+                <a>
+                    Картинкой
+                </a>
+            </li>
+                <li class="" data-target="result_tilesss">
+            <a>
+                Блоками
+            </a>
+        </li>
+        <li data-target="result_listss">
+            <a>
+                Списком
+            </a>
+        </li>
+        <li data-target="result_linkss">
+            <a>
+                Ссылка
+            </a>
+        </li>
+    </ul>
+<div class="ml-4">
+                    <input id="save_state_quick" type="checkbox" class="switch is-small is-rounded is-link is-outlined">
+            </div></div>
+<div id="result_tiles" class="is-hidden">
+    <p class="mb-1 mt-0"><strong>1</strong> число в диапазоне от <strong>1</strong> до <strong>100</strong>, без сортировки результатов, с возможными повторами</p>
+    <div class="container">
+    <div class="result_container is-flex is-flex-wrap-wrap">
+                    <div class="result_items result_element copy_button" data-clipboard-text="60" style="min-width: 0px;">
+                                    <span class="result_items_serial is-size-7 has-text-grey-light"> 1</span>
+                                <span class="has-text-weight-bold is-size-2 is-size-3-mobile is-size-2-widescreen ">60</span>
+            </div>
+            </div>
+</div></div>
+    <div id="result_image" class="">
+        <div id="image_wide" class="">
+            <a download="" href="/static/numbers/{{number}}.png"><img id="result_main_image" class="image result_main_image" src="/static/numbers/{{number}}.png" alt="Результаты"></a>
+        </div>
+
+        <div id="image_square" class="is-hidden">
+            <a download="" href="/static/numbers/{{number}}.png"><img class="image" src="/static/numbers/{{number}}.png" loading="lazy" alt="Результаты"></a>
+        </div>
+        <p class="help mb-2 has-text-centered">Кликните на картинку, чтобы её сохранить. Если вам нужна постоянная картинка и ссылка на результат, то это <a href="/number?type=generate">здесь</a>.</p>
+        <div class="tabs is-toggle is-toggle-rounded is-small is-centered">
+            <ul>
+                <li class="is-active" data-target="image_wide"><a>3:2</a></li>
+                <li data-target="image_square"><a>1:1</a></li>
+            </ul>
+        </div>
+    </div>
+<div id="result_list" class="is-hidden">
+    <p class="mb-1 mt-0"><strong>1</strong> число в диапазоне от <strong>1</strong> до <strong>100</strong>, без сортировки результатов, с возможными повторами</p>
+    <div class="field">
+    <div class="control">
+        <textarea id="result_textarea" class="textarea is-family-monospace" readonly="" data-numbers="60">60</textarea>
+    </div>
+</div>
+<div class="field is-grouped is-grouped-multiline">
+    <div class="field has-addons is-hidden mr-2">
+        <div class="control">
+            <a class="button is-static">
+                Разделитель
+            </a>
+        </div>
+        <div class="control">
+            <div class="select">
+                <select onchange="change_separator(this)">
+                                            <option value="0">1, 2, 3</option>
+                                            <option value="1">1; 2; 3</option>
+                                            <option value="2">1,2,3</option>
+                                            <option value="3">1;2;3</option>
+                                            <option value="4">1 2 3</option>
+                                            <option value="5">перенос строки</option>
+                                            <option value="6">табуляция</option>
+                                            <option value="8">маркированный список</option>
+                                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="control">
+        <a class="button copy_button" data-clipboard-target="#result_textarea">
+            <span class="icon is-small"><svg class="svg-inline--fa fa-copy" aria-hidden="true" focusable="false" data-prefix="far" data-icon="copy" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"></path></svg><!-- <i class="far fa-copy"></i> --></span>
+            <span>Скопировать</span>
+        </a>
+    </div>
+</div>
+<div class="content is-hidden">
+    <div class="notification content  is-hidden-mobile">
+                            
+                            <div class="media">
+                                <div class="media-left is-hidden-mobile" style="height:1rem;"><span class="icon is-size-3 mr-1"><svg class="svg-inline--fa fa-circle-info" aria-hidden="true" focusable="false" data-prefix="far" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8V248c0-13.3-10.7-24-24-24H216c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64H216zm40-144a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg><!-- <i class="far fa-circle-info"></i> --></span></div>
+                                <div class="media-content">
+                                    									
+                                    <p>Используя перенос строки, как разделитель, можно заполнить строки электронной таблицы.<br> Используя табуляцию — можно заполнить ячейки отдельной строки.</p>									
+                                </div>
+                            </div>
+                        </div></div>
+
+</div>
+<div id="result_link" class="is-hidden">
+    <div class="container">
+        Ссылка, чтобы сгенерировать ещё <strong>1</strong> число в диапазоне от <strong>1</strong> до <strong>100</strong>, без сортировки результатов, с возможными повторами:<br>
+        <div class="field copy_button mt-2" data-clipboard-text="https://randomus.ru/quick?from=1&amp;to=100&amp;count=1">
+            <pre class="is-size-6 has-text-link">https://randomus.ru/quick?from=1&amp;to=100&amp;count=1</pre>
+        </div>
+        <p>По ссылке каждый раз будет генерироваться новый результат. Если вам нужен сервис, который хранит результаты и позволяет ссылаться на них, то это <a href="/number">здесь</a>.</p>
+    </div>
+</div>
+
+                <div class="mmb mt-6">
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>                    </div>
+    </div>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

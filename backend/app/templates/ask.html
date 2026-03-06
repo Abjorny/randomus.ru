@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="columns">
+    <div class="column is-8">
+        <div class="content">
+    <h1 class="title is-4"><a href="ask.html" class="no_decoration has-text-dark">Выбор случайного ответа</a></h1>
+</div>
+<form id="ask_form" name="ask" action="ask.html" method="get" class="form mb-6"
+      data-loadtext="Ищем ответ"
+      onsubmit="let q=document.getElementById('q'); if (!q.value) {q.disabled = true;}">
+    <div id="settings_div" class="switch_element ">
+        <div class="field">
+            <div class="mb-1">
+                <label class="label">Варианты ответа</label>
+            </div>
+            <div class="control">
+                <div class="select">
+                    <select name="type">
+                                                    <option value="just" >Да или Нет</option>
+                                                    <option value="likely" >Да или Нет + неопределенность</option>
+                                                    <option value="coin" >Орёл или решка (подбросить монетку)</option>
+                                                    <option value="sex" >Мальчик или Девочка</option>
+                                                    <option value="abc" >из 3-х вариантов (A, B, C)</option>
+                                                    <option value="123" >из 3-х вариантов (1, 2, 3)</option>
+                                                    <option value="abcd" >из 4-х вариантов (A, B, C, D)</option>
+                                                    <option value="1234" >из 4-х вариантов (1, 2, 3, 4)</option>
+                                                    <option value="abcde" >из 5-ти вариантов (A, B, C, D, E)</option>
+                                                    <option value="12345" >из 5-ти вариантов (1, 2, 3, 4, 5)</option>
+                                            </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="mb-1">
+                <label class="label">Вопрос</label>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <textarea name="q" id="q" class="textarea" rows="2"
+                              placeholder="Выводится на экран. Оставьте пустым, если этого не требуется"
+                              maxlength="120"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field mt-6">
+        <div class="control">
+            <div class="buttons">
+                <button type="submit" class="button is-large is-link">Получить ответ</button>
+                <a class="button is-white visible-switch"
+                   data-target="settings_div"><span class='icon has-text-grey-light'><i class='far fa-gear'></i></span>                    <span>Настроить</span></a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="content">
+            <p>Поможем сделать сложный выбор. Можно задать <a href="ask_type-likely-q-Быть-или-не-быть.html"><span class="tag is-medium is-link is-light">свой
+                    вопрос</span></a> и выбрать подходящий наборов ответов, например: <a href="ask_type-just.html"><span class="tag is-medium is-link is-light">да или нет</span></a>, <a href="ask_type-coin.html"><span class="tag is-medium is-link is-light">подбросить монетку</span></a> или использовать наш сервис для <a href="ask_type-abcd.html"><span class="tag is-medium is-link is-light">решения тестов</span></a>.</p>
+    </div>
+<div class="notification content ">
+                            <div class="media">
+                                <div class="media-left is-hidden-mobile" style="height:1rem;"><span class='icon is-size-3 mr-1'><i class='far fa-circle-info'></i></span></div>
+                                <div class="media-content">
+                                    <p><p>Принимайте взвешенные решения. Этот сервис преследует сугубо развлекательные цели и не претендует на истину.</p></p>									
+                                </div>
+                            </div>
+                        </div>
+    </div>
+    <div class="column is-4">
+                <div class='mmb'>
+<div id="yandex_rtb_R-A-715785-1" class="min-height-block"></div>
+<script>window.yaContextCb.push(()=>{
+        Ya.Context.AdvManager.render({
+            renderTo: 'yandex_rtb_R-A-715785-1',
+            blockId: 'R-A-715785-2'
+        })
+    })</script></div>    </div>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a href="screencast.html" class="no_decoration">Запись скринкастов<sup>ẞ</sup></a>
+        </h1>
+        <form>
+            <div class="field">
+                <div class="label">
+                    <label class="label">Задержка начала записи</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile mb-2">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <input id="start_delay" class="input with_numeral" type="number" value="0" min="0"
+                                           max="100" size="3" autocomplete="off" data-label="start_delay_label"
+                                           required>
+                                </div>
+                                <div class="level-item"><span id="start_delay_label"
+                                                              data-titles="секунда,секунды,секунд">секунд</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="help">После выбора источника запись начнется с указанной задержкой.</p>
+                    </div>
+                </div>
+            </div>
+                <div class="field">
+                    <input id="grab_audio" type="checkbox" class="switch is-rounded is-link is-outlined" value="1">
+                    <label for="grab_audio">Захватывать звук</label>
+                    <p class="help mt-0">
+                        Подтвердите доступ к аудио в диалоге выбора источника. При выборе в качестве источника изображения вкладки — можно записать только звуки воспроизводящиеся на ней, при выборе экрана — можно включить в запись все звуки системы.
+                    </p>
+                </div>
+            <div class="field mt-4">
+                <div class="control">
+                    <a class="button is-danger is-outlined is-medium is-fullwidth is-align-items-baseline" id="rnd-record-label" onclick="rndScreenRecord()">
+                        <span id="record-label" class="record-label">Начать запись</span>
+                        <span id="record-timing" class="record-timing is-family-monospace ml-4 is-size-6"></span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                <p>Максимально простой инструмент для записи видео с вашего экрана. Работает как со страницами «Рандомуса», так и с любыми другими вкладками браузера и окнами в системе. Не работает на мобильных устройствах в силу технических ограничений мобильных браузеров.</p>
+<ul>
+    <li>После нажатия кнопки «Начать запись» выберите в диалоге вкладку, окно или весь экран для захвата изображения.</li>
+    <li>Запись начнется и будет продолжаться до тех пор, пока не будет нажата кнопка «закрыть доступ» во всплывающем сообщении, или кнопка «остановить запись» на этой вкладке.</li>
+    <li>Сразу после завершения записи файл со скринкастом будет загружен на ваш компьютер. Ищите его в папке «Загрузки» вашего браузера.</li>
+    <li>Запись сохраняется в формате WebM, который поддерживают все современные браузеры и видеохостинги.</li>
+</ul>
+<div class="notification content ">
+                            <div class="media">
+                                <div class="media-left is-hidden-mobile" style="height:1rem;"><span class='icon is-size-3 mr-1'><i class='far fa-circle-info'></i></span></div>
+                                <div class="media-content">
+                                    <p>Во время записи не переходите по ссылкам на этой вкладке, и не закрывайте её, 
+иначе запись прекратится, а файл со скринкастом не будет сохранен.</p>									
+                                </div>
+                            </div>
+                        </div>                </div>
+                <div class='mmb mt-6'>
+<div id="yandex_rtb_R-A-715785-6"></div>
+{% include "includes/nav.html" %}</div>                    </div>
+    </div>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

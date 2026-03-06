@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+        <div class='mmb'>
+<div id="yandex_rtb_R-A-715785-1" class="min-height-block"></div>
+<script>window.yaContextCb.push(()=>{
+        Ya.Context.AdvManager.render({
+            renderTo: 'yandex_rtb_R-A-715785-1',
+            blockId: 'R-A-715785-2'
+        })
+    })</script></div>    </div>
+    <div class="column is-8 has-text-centered">
+        <div id="contentColumn">
+            <div id="number_area" class="rnd-simple-numbers-area has-text-weight-bold is-family-monospace is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-space-evenly">
+                <div id="titleInfo" style="font-family: var(--rnd-font-main)">
+                    <h1 class="title is-size-1-desktop is-size-2-mobile mb-5">Рандомайзер<br>для чисел<span class="is-hidden-mobile"> и номеров</span></h1>
+                    <p class="is-size-5 has-text-weight-light mb-3" style="white-space: normal">Умеет не повторяться в сериях.<br>Не теряет параметры и результаты при перезагрузке.</p>
+                </div>
+            </div>
+            <div id="current_time" class="animate__animated mt-0 mb-4 is-family-monospace">
+                &nbsp;
+            </div>
+            <button id="generateButton" class="button is-large" onclick="simpleControl.generateNumber()">Сгенерировать</button>
+            <div class="divider mb-4 is-family-monospace has-text-left">
+                Диапазон и настройки
+            </div>
+            <div id="generate_form" class="">
+                <div class="field">
+                    <div class="field is-flex is-justify-content-center">
+                        <div class="range_label mr-2">
+                            От
+                        </div>
+                        <div class="control">
+                            <input id="paramMin" name="paramMin" class="input has-text-centered simple-param" type="number" value="1" required autocomplete="off">
+                        </div>
+                        <div class="range_label mx-2">до
+                        </div>
+                        <div class="control">
+                            <input id="paramMax" name="paramMax" class="input has-text-centered simple-param" type="number" value="1000" required autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="field">
+                        <div class="control">
+                            <div class="level is-mobile is-justify-content-center">
+                                <div class="level-left is-flex-direction-row">
+                                    <div class="level-item mr-1">получить</div>
+                                    <div class="level-item">
+                                        <input id="paramAmount" name="paramAmount" class="input with_numeral has-text-centered simple-param" type="number" value="1"  min="1" max="999" size="3" autocomplete="off" data-label="paramAmountLabel">
+                                    </div>
+                                    <div class="level-item ml-1"><span id="paramAmountLabel">число</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field mb-0">
+                    <input name="paramRepeatsSingle" id="paramRepeatsSingle" type="checkbox" class="switch is-rounded is-link is-outlined is-small simple-param" value="1">
+                    <label for="paramRepeatsSingle" class="mr-4"><span class="is-hidden-mobile">допускать&nbsp;</span>повторы в <span class="is-hidden-mobile">&nbsp;одном&nbsp;</span>запросе</label>
+                    <input name="paramRepeatsSeries" id="paramRepeatsSeries" type="checkbox" class="switch is-rounded is-link is-outlined is-small simple-param" value="1">
+                    <label for="paramRepeatsSeries"><span class="is-hidden-mobile">допускать&nbsp;</span>повторы в серии</label>
+                </div>
+            </div>
+            <div id="last_numbers_label" class="divider mb-4 is-family-monospace">
+                Последние номера
+            </div>
+            <div id="last_numbers" class="is-family-monospace rnd-last-numbers rnd-last-numbers-hidden" onclick="simpleControl.showLastNumbersDialog()"></div>
+            <div class="buttons is-centered mt-4">
+                <a class="button is-text" title="Дополнительные настройки" onclick="rnd_openModal(settingsForm)"><span class='icon'><i class='far fa-gear'></i></span></a>
+                <a class="button is-text" title="Результаты" onclick="simpleControl.showLastNumbersDialog()"><span class='icon'><i class='far fa-memo-circle-check'></i></span></a>
+                <a class="button is-text" title="Сбросить все" onclick="simpleControl.clearNumbers(simpleControl.clearTypes.all)"><span class='icon'><i class='far fa-rotate-left'></i></span></a>
+            </div>
+        </div>
+        <div class="mt-5 is-hidden-desktop">
+            <div class='mmb'>
+ <div id="yandex_rtb_R-A-715785-2" class="min-height-block"></div>
+<script>
+    function ad_reload() {
+        window.yaContextCb.push(()=>{
+            Ya.Context.AdvManager.render({
+                renderTo: 'yandex_rtb_R-A-715785-2',
+                blockId: 'R-A-715785-4'
+            })
+        })
+    }
+    ad_reload();
+</script></div>        </div>
+        <div class="mt-5 has-text-left">
+            <p>Рандомайзер позволяет генерировать случайные числа из заданного диапазона, не допуская повторов в серии из нескольких чисел подряд. Текущее состояние розыгрыша сохраняется на вашем устройстве, и не теряется при перезагрузке страницы.
+            <p class="mt-2">Ведется список всех сгенерированных чисел в порядке их получения. Основные настройки позволяют управлять возможностью повторов номеров, а дополнительные — внешним видом сервиса и функционалом сохранения параметров и данных.</p>
+            <p class="mt-2">Инструмент отлично подходит в случаях, когда онлайн необходимо получить несколько случайных чисел по одному за раз, и не допустить между ними повторов в рамках всего розыгрыша.</p>
+        </div>
+    </div>
+    <div class="column is-2 is-hidden-mobile">
+        <div class='mmb'>
+<div id="yandex_rtb_R-A-715785-3" class="min-height-block"></div>
+<script>window.yaContextCb.push(()=>{
+        Ya.Context.AdvManager.render({
+            renderTo: 'yandex_rtb_R-A-715785-3',
+            blockId: 'R-A-715785-2'
+        })
+    })</script></div>    </div>
+</div>
+<div id="number_view_form" class="modal" data-onclose="">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head py-4">
+            <p id='number_view_form_title' class="modal-card-title">Сгенерированные данные</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="tabs is-small is-toggle mb-4">
+                <ul>
+                    <li class='is-active' data-target="tab_last"><a>Все числа&nbsp;(<span id="last_numbers_count">0</span>)</a></li>
+                    <li data-target="tab_previous"><a>В текущей серии&nbsp;(<span id="previous_numbers_count">0</span>)</a></li>
+                </ul>
+            </div>
+            <div id="tab_last">
+                <div class="field">
+                    <div class="control">
+                        <p class="help">Список всех результатов в порядке получения, от первого номера к последнему. Разделитель номеров в списке можно изменить в настройках.</p>
+                        <textarea id="last_numbers_textarea" class="textarea is-family-monospace" readonly
+                        data-numbers=""></textarea>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="buttons is-justify-content-space-between">
+                        <a class="button copy_button" data-clipboard-target="#last_numbers_textarea">
+                            <span class="icon is-small"><span class='icon'><i class='far fa-copy'></i></span></span>
+                            <span >Скопировать список</span>
+                        </a>
+                        <a class="button is-danger is-outlined" onclick="simpleControl.clearNumbers(simpleControl.clearTypes.last)" title="Очистить список последних номеров">
+                            <span class="icon is-small"<span class='icon'><i class='far fa-trash-can-list'></i></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="tab_previous" class='is-hidden'>
+                <div class="field">
+                    <div class="control">
+                        <p class="help">Список для проверки уникальности генерируемых номеров, если включена такая настройка. Здесь числа не повторяются, даже если в результатах есть дубли.</p>
+                        <textarea id="previous_numbers_textarea" class="textarea is-family-monospace" readonly
+                                  data-numbers=""></textarea>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="buttons is-justify-content-space-between">
+                        <a class="button copy_button" data-clipboard-target="#previous_numbers_textarea">
+                            <span class="icon is-small"><span class='icon'><i class='far fa-copy'></i></span></span>
+                            <span >Скопировать серию</span>
+                        </a>
+                        <a class="button is-danger is-outlined" onclick="simpleControl.clearNumbers(simpleControl.clearTypes.series)" title="Очистить серию">
+                            <span class="icon is-small"<span class='icon'><i class='far fa-trash-can-list'></i></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot py-4 is-justify-content-end" >
+            <buttons>
+                <button class="button is-danger is-outlined" onclick="simpleControl.clearNumbers(simpleControl.clearTypes.seriesAndLast)">Очистить всё</button>
+            </buttons>
+        </footer>
+    </div>
+</div>
+<div id="settings_form" class="modal" data-onclose="">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head py-4">
+            <p id='number_view_form_title' class="modal-card-title">Дополнительные настройки</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="field">
+                <label class="label">Разделитель номеров в списке результатов</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="settingsListSeparator" class="simple-settings">
+                                                            <option value=0>1, 2, 3</option>
+                                                            <option value=1>1; 2; 3</option>
+                                                            <option value=2>1,2,3</option>
+                                                            <option value=3>1;2;3</option>
+                                                            <option value=4>1 2 3</option>
+                                                            <option value=5>перенос строки</option>
+                                                            <option value=6>табуляция</option>
+                                                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <input id="settingsNumberAnimation" type="checkbox" checked class="simple-settings switch is-rounded is-link is-outlined" value="1">
+                <label for="settingsNumberAnimation" class="mr-4">Анимировать появление чисел</label>
+                <p class="help mt-0">Действует при показе не более 5 чисел за раз.</p>
+            </div>
+            <div class="field">
+                <input id="settingsSaveParam" type="checkbox" checked class="simple-settings switch is-rounded is-link is-outlined" value="1">
+                <label for="settingsSaveParam" class="mr-4">Загружать последние параметры</span></label>
+                <p class="help mt-0">При открытии страницы будут восстановлен последний диапазон, количество чисел и настройки повторов.</p>
+            </div>
+            <div class="field">
+                <input id="settingsSaveData" type="checkbox" class="simple-settings switch is-rounded is-link is-outlined" value="1">
+                <label for="settingsSaveData" class="mr-4">Загружать последние данные</label>
+                <p class="help mt-0">При открытии страницы будут восстановлены последние результаты, все ранее сгенерированные номера, а также текущая серия чисел для контроля повторов.</p>
+            </div>
+            <div class="field">
+                <input id="settingsShowLastNumbers" type="checkbox" class="simple-settings switch is-rounded is-link is-outlined" value="1">
+                <label for="settingsShowLastNumbers" class="mr-4">Показывать на экране список последних номеров</label>
+            </div>
+            <div class="field">
+                <input id="settingsMaskUserEmail" type="checkbox" class="simple-settings switch is-rounded is-link is-outlined" value="1">
+                <label for="settingsMaskUserEmail" class="mr-4">Маскировать эл. почту пользователя</label>
+            </div>
+        </section>
+        <footer class="modal-card-foot  py-4" >
+            <buttons>
+                <button class="button" onclick="rnd_closeAllModals()">Закрыть</button>
+            </buttons>
+        </footer>
+    </div>
+</div>
+<div id="titleHolder" class="is-hidden"></div>
+<div id="scrollButton" class="rnd-simple-scroll-button">
+    <a class="button is-light" onclick="simpleControl.scrollToControl()">
+        <span class="icon">
+            <span class='icon'><i class='far fa-down-to-line'></i></span>        </span>
+        <span>К управлению</span>
+    </a>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+    <script defer src="/static/static-sub/static/resource/js/short_21.js"></script>
+    <script defer src="/static/static-sub/static/resource/js/rnd_common_21.js"></script>
+    <script defer src="/static/design/rnd2/js/interface_1768363611.js"></script>
+    <script defer src="/static/design/rnd2/js/simple.min_1747234211.js"></script>
+    <script defer src="/static/design/rnd2/js/vendor/odometer.min_1733801586.js"></script>
+</body>
+</html>

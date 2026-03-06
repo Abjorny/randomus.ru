@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a href="split.html" class="no_decoration">Разделить список на группы</a>
+        </h1>
+        <form onsubmit="split_control.split(); return false">
+            <div class="field">
+                <div class="label is-pulled-left">
+                    <label class="label">Список</label>
+                </div>
+                <div class="dropdown is-pulled-right is-right mb-2">
+                    <div class="dropdown-trigger">
+                        <a class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu">
+                                                            <span id="count_label"><strong>0</strong> записей</p></span>
+                                                        <span class='icon is-small'><i class='fas fa-angle-down'></i></span>                        </a>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a id="item_sort_down" class="dropdown-item" onclick="split_control.sorting_list()">
+                                <span class='icon'><i class='fas fa-arrow-down-a-z'></i></span>                                <span>Сортировать</span>
+                            </a>
+                            <a id="item_sort_up" class="dropdown-item" onclick="split_control.sorting_list(true)">
+                                <span class='icon'><i class='fas fa-arrow-down-z-a'></i></span>                                <span>Сортировать</span>
+                            </a>
+                            <hr  class="dropdown-divider">
+                            <a id="item_remove_duplicate" class="dropdown-item" onclick="split_control.remove_duplicate()">
+                                <span class='icon'><i class='far fa-broom'></i></span>                                Удалить повторы
+                            </a>
+                            <a id="item_clear_list" class="dropdown-item" onclick="split_control.load_list_to_field([])">
+                                <span class='icon'><i class='far fa-trash-can-list'></i></span>                                <span>Очистить список</span>
+                            </a>
+                            <hr  class="dropdown-divider">
+                            <label class="checkbox dropdown-item">
+                                <input class="ml-1 mr-1" id="save_list" type="checkbox" value="1" onchange="split_control.update_save_list()">
+                                <span>Хранить список в браузере</span>
+                            </label>
+                            <hr  class="dropdown-divider">
+                            <a class="dropdown-item" class="dropdown-item" onclick="split_control.get_fakelist()">
+                                <span class='icon'><i class='far fa-input-text'></i></span>                                <span>Загрузить пробный список</span>
+                            </a>
+                            <hr  class="dropdown-divider">
+                            <label class="checkbox dropdown-item">
+                                <input class="ml-1 mr-1" id="no_counter" type="checkbox" value="1" onchange="split_control.update_list_counter();" >
+                                <span>Без счетчика записей</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="textarea" id="text_data" rows="10" onchange="split_control.update_main_list()"
+                          oninput="split_control.update_main_list();" required spellcheck="false"></textarea>
+                <p class="help mb-1">Одна запись в строке. Пустые строки игнорируются.</p>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label id="split_label" class="label switch_element">Разделить на <a class="button is-small is-shadowless is-pulled-right has-text-weight-normal" onclick="split_control.change_type('by')">Разделить по</a>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="count" class="input with_numeral" type="number" value="2" min="1"
+                                           max="1000" size="3" autocomplete="off"
+                                           data-label="num_label"
+                                           required>
+                                </div>
+                                <div class="level-item ml-2"><span id="num_label"
+                                                              data-titles="группу,группы,групп">группы</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field mb-0" id="block_equal_amount">
+                <input id="equal_amount" type="checkbox" class="switch is-rounded is-link is-outlined" value="1" checked onchange="split_control.update_max_count();">
+                <label for="equal_amount" id="switch_equal">Поровну во всех группах</label>
+                <p class="help mt-0">
+                    Если будут нераспределенные участники, покажем их отдельно.
+                </p>
+            </div>
+            <div class="field">
+                <input id="serial_number" type="checkbox" class="switch is-rounded is-link is-outlined" value="1">
+                <label for="serial_number">Порядковые номера в группах</label>
+                <p class="help mt-0">
+                    Добавит нумерацию по порядку в каждую группу
+                </p>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Сортировать результаты в группах</label>
+                </div>
+                <div class="control">
+                    <div class="select">
+                        <select id="sorting">
+                            <option value="0" selected>нет</option>
+                            <option value="2">по алфавиту</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field mt-4">
+                <div class="control">
+                    <input type="submit" class="button is-link is-medium is-fullwidth" id="send_button" disabled value="Разделить">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                <div class="container mb-5" id="info_box">
+    <div class="content">
+        <p>Разделить список на группы с помощью генератора случайных чисел. Список можно делить на заданное
+            количество групп, либо по заданному количеству участников в каждой группе.
+            Размер списка ограничен производительностью вашего компьютера.
+            Добавление большого количества строк может занять некоторое время.</p>
+        <p class="is-hidden-mobile">
+            Счетчик записей отражает количество строк в списке и их повторов. При необходимости
+            дубли строк можно удалить, список отсортировать, а счетчик записей отключить.</p>
+        <p><a onclick="split_control.get_fakelist()">Загрузите случайный список</a>, чтобы протестировать. Данные — <a href="name.html">
+                <span class='icon has-text-grey'><i class='fad fa-users'></i></span> Генератор имен и фамилий</a>.
+        </p>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container is-hidden mb-5" id="result_box">
+        <h2 class="title is-4">
+            Результаты
+        </h2>
+        <p class="subtitle is-7 mb-3"><span class='icon icon_first mr-1'><i class='far fa-stopwatch'></i></span><span
+                    id="timestamp_label"></span></p>
+        <div class="tabs is-small is-toggle mb-4">
+            <ul>
+                <li class="is-active" data-target="result_tiles">
+                    <a>
+                        Блоками
+                    </a>
+                </li>
+                <li data-target="result_list">
+                    <a>
+                        Списком
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="result_tiles">
+            <div class="container">
+                <div id="result_container" class="field is-grouped is-grouped-multiline">
+                </div>
+                <div id="clear_list" class="mt-3">
+                    <div class="dropdown mb-2">
+                        <div class="dropdown-trigger">
+                            <a class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu-2">
+                                    <span>Убрать из списка текущие результаты</span>
+                                <span class='icon is-small'><i class='fas fa-angle-down'></i></span>                            </a>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu-2" role="menu">
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" onclick="clear_list(false, true)">
+                                    Только выпавшие строки
+                                </a>
+                                <a class="dropdown-item" onclick="clear_list(true, true)">
+                                    Вместе с повторами, если они есть
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="result_list" class="is-hidden">
+            <input id="separator_select" type="hidden" value=5>
+            <div class="field">
+                <div class="control">
+                    <textarea id="result_textarea" class="textarea is-family-monospace" readonly
+                              data-numbers=""></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <a class="button copy_button" data-clipboard-target="#result_textarea">
+                        <span class="icon is-small"><i class="far fa-copy"></i></span> <span>Скопировать</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>                </div>
+                <div class='mmb mt-6'>
+</div>                    </div>
+    </div>
+</div>
+    </section>
+    {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>

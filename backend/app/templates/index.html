@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+{% include "includes/head.html" %}
+<body>
+<div class="rand-modal-cover is-hidden"></div>
+<div class="rand-modal-modal is-hidden">
+    <div class="rand-modal-content is-hidden">
+        <p class="mb-2"><span class='icon is-size-3'><i class='fad fa-loader fa-spin'></i></span></p>
+        <div id="modal_text">Получаем данные</div>
+    </div>
+</div>
+<div id="all_content" class="container">
+    {% include "includes/nav.html" %}
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+        <div class="hero is-small-mobile">
+    <div class="hero-body is-paddingless-mobile pt-2">
+        <div class="container has-text-centered">
+            <h2 class="title is-4">
+                Рандомайзер для чисел и данных, выбор победителей
+            </h2>
+            <div class="level is-hidden-mobile">
+                <div class="has-text-right level-item" title="Наша статистика">
+                    <div>
+                        <p class="heading">&nbsp;</p>
+                        <p class="title has-text-link"><span class='icon mr-1'><i class='fad fa-chart-column'></i></span></p>
+                    </div>
+                </div>
+                <div class="has-text-centered level-item" title="Сервис запущен в марте 2013 года">
+                    <div>
+                        <p class="has-text-grey heading">Работаем</p>
+                        <p class="is-size-5 title">12 лет</p>
+                    </div>
+                </div>
+                <div class="has-text-centered level-item">
+                    <a href="/quick" title="Сгенерировано">
+                        <div>
+                            <p class="has-text-grey heading">Случайных чисел</p>
+                            <p class="is-size-5 title">2&nbsp;067&nbsp;172&nbsp;340</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="has-text-centered level-item">
+                    <a title="Найдено">
+                        <div>
+                            <p class="has-text-grey heading">Победителей для VK</p>
+                            <p class="is-size-5 title">148&nbsp;330</p>
+                        </div>
+                    </a>
+                </div>
+                <!--
+                <div class="has-text-centered level-item">
+                    <a href="password.html" title="Сгенерировано">
+                        <div>
+                            <p class="has-text-grey heading">Паролей</p>
+                            <p class="is-size-5 title">124&nbsp;274&nbsp;522</p>
+                        </div>
+                    </a>
+                </div>
+                -->
+                <div class="has-text-centered level-item">
+                    <a  title="Сгенерировано">
+                        <div>
+                            <p class="has-text-grey heading">Случайных имен</p>
+                            <p class="is-size-5 title">648&nbsp;049&nbsp;691</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="has-text-centered level-item">
+                    <a  title="Сгенерировано">
+                        <div>
+                            <p class="has-text-grey heading">Случайных ников</p>
+                            <p class="is-size-5 title">281&nbsp;527&nbsp;180</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="has-text-centered level-item">
+                    <a  title="Нижняя оценка призового фонда масштабных розыгрышей, проведенных с участием Рандомуса">
+                        <div>
+                            <p class="has-text-grey heading">Разыграно</p>
+                            <p class="is-size-5 title">больше 800 млн.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a class="no_decoration" href="/quick">Генератор случайных чисел</a>
+        </h1>
+        <p class="subtitle has-text-grey is-6 mt-1">
+            до 1&thinsp;000 чисел за раз, до 999&thinsp;999&thinsp;999            </p>
+        <form name="quick" action="/quick" method="get" data-loadtext="Генерируем результаты">
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">В диапазоне</label>
+                </div>
+                <div class="field is-flex is-align-content-stretch">
+                    <div class="range_label mr-2">
+                        от
+                    </div>
+                    <div class="control">
+                        <input id="num_from" name="from" class="input has-text-centered" type="number" value="1" required  min="0" max="99999999" placeholder="0" autocomplete="off" onchange="change_max_count();">
+                    </div>
+                    <div class="range_label mx-2">до
+                    </div>
+                    <div class="control">
+                        <input id="num_to" name="to" class="input has-text-centered" type="number" value="100" required  min="0" max="99999999" placeholder="999&thinsp;999&thinsp;999" autocomplete="off" onchange="change_max_count();">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Получить</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="num_count" name="count" class="input with_numeral has-text-centered" type="number" value="1"  min="1" max="1" size="3" autocomplete="off" data-label="num_label">
+                                </div>
+                                <div class="level-item ml-1"><span id="num_label">число</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field mb-0">
+                <input name="norepeat" id="num_norepeat" type="checkbox" class="switch is-rounded is-link is-outlined"  value="1" onclick="change_max_count();">
+                <label for="num_norepeat">Без повторов</label>
+            </div>
+            <div class="field">
+                <input name="sort" id="num_sort" type="checkbox" class="switch is-rounded is-link is-outlined"  value="1">
+                <label for="num_sort">Сортировать по порядку</label>
+            </div>
+            <div class="field mb-0">
+                <div class="control">
+                    <button type="submit" class="button is-link is-fullwidth is-medium">Сгенерировать</button>
+                </div>
+            </div>
+            <input id="max_count" value="1000" type="hidden">
+        </form>
+    </div>
+</div>
+<div class="content is-size-6 form-box rnd-no-outline rnd-background-white pt-3">
+    <p class=" mb-1">Популярные комбинации чисел</p>
+    <div class="tags">
+        <span class="tag"><a href="quick_from-1-to-20-count-4-norepeat-1-sort-1.html">4&nbsp;из&nbsp;20</a></span>
+        <span class="tag"><a href="quick_from-1-to-36-count-5-norepeat-1-sort-1.html">5&nbsp;из&nbsp;36</a></span>
+        <span class="tag"><a href="quick_from-1-to-36-count-6-norepeat-1-sort-1.html">6&nbsp;из&nbsp;36</a></span>                            
+        <span class="tag"><a href="quick_from-1-to-45-count-6-norepeat-1-sort-1.html">6&nbsp;из&nbsp;45</a></span>
+        <span class="tag"><a href="quick_from-1-to-49-count-7-norepeat-1-sort-1.html">7&nbsp;из&nbsp;49</a></span>
+        <span class="tag"><a href="lottery.html">все варианты для лотерей</a></span>
+    </div>
+</div>    </div>
+    <div class="column">
+        <div class='mmb mb-4'>
+<script>window.yaContextCb.push(()=>{
+        Ya.Context.AdvManager.render({
+            renderTo: 'yandex_rtb_R-A-715785-1',
+            blockId: 'R-A-715785-1'
+        })
+    })</script></div>
+        <nav class="bd-links mb-5">
+            <a class="bd-link" href="/simple">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-binary'></i></span></figure>
+        Лаконичный рандомайзер
+    </h2>
+    <p class="bd-link-subtitle">Наглядный и простой. Может генерировать серии чисел без повторов, не теряет данные при перезагрузке страницы.
+    </p>
+</a>
+<a class="bd-link" href="/list">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-list-radio'></i></span></figure>
+        Выбор победителя из списка
+    </h2>
+    <p class="bd-link-subtitle">Работает на больших списках (проверено до 1&thinsp;000&thinsp;000 строк).
+        Есть фильтр дубликатов. Результаты не храним.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-ranking-star'></i></span></figure>
+        Рандомус<sup>special</sup>
+    </h2>
+    <p class="bd-link-subtitle">Инструмент для проведения розыгрышей призов онлайн, в один или несколько этапов, с возможностью настройки механики и внешнего вида.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-split'></i></span></figure>
+        Разделить список на группы
+    </h2>
+    <p class="bd-link-subtitle">Делит список на заданное количество групп или на группы с заданным количеством участников.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fab fa-vk'></i></span></figure>
+        Конкурс ВКонтакте
+    </h2>
+    <p class="bd-link-subtitle">Считаем лайки, репосты и комментарии к записям, проверяем наличие в
+        подписчиках/друзьях в любых комбинациях. Храним все результаты.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-link'></i></span></figure>
+        Случайные числа с картинкой и ссылкой на результат
+    </h2>
+    <p class="bd-link-subtitle">Результат сохраним. У него будет постоянная ссылка и готовая картинка.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-pen-nib'></i></span></figure>
+        Розыгрыш с описанием
+    </h2>
+    <p class="bd-link-subtitle">Честный розыгрыш c помощью генератора случайных чисел. Подвести итоги можно
+        только один раз. Подменить результаты невозможно. Данные хранятся бессрочно.
+    </p>
+</a>
+<a class="bd-link">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure">
+            <span class='bd-link-icon has-text-link is-size-4'>
+                <i class='fad fa-users'></i>
+            </span>
+        </figure>
+        Генератор имен и фамилий
+    </h2>
+    <p class="bd-link-subtitle">
+        Для русских и английских имен в различных форматах, с учетом реальной
+        частоты использования в современном мире.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-user-secret'></i></span></figure>
+        Генератор случайных ников
+    </h2>
+    <p class="bd-link-subtitle">Работает на основе статистической сочетаемости символов в литературных
+        текстах.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-star-of-life'></i></span></figure>
+        Генератор паролей
+    </h2>
+    <p class="bd-link-subtitle">Настраиваемый генератор безопасных паролей с оценкой их стойкости к подбору.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-percent'></i></span></figure>
+        Генератор промокодов для акций и распродаж
+    </h2>
+    <p class="bd-link-subtitle">Настриваемый формат промокода и списка для выгрузки результатов.
+    </p>
+</a>
+<a class="bd-link" >
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-square-w'></i></span></figure>
+        Поиск слов из 5 букв.
+    </h2>
+    <p class="bd-link-subtitle">Ищет решение для головоломок со словами по известным данным. Русский и английский словарь.
+    </p>
+</a>
+<a class="bd-link">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-stars'></i></span></figure>
+        Генератор гороскопов
+    </h2>
+    <p class="bd-link-subtitle">Астрологические гороскопы в разных тематиках на ближайшие три дня, а также случайный гороскоп для любого знака зодиака.
+    </p>
+</a>
+<a class="bd-link" href="/ask">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-crystal-ball'></i></span></figure>
+        Выбор случайного ответа
+    </h2>
+    <p class="bd-link-subtitle">Поможет сделать сложный выбор в любой ситуации. Варианты ответов настраиваются.
+    </p>
+</a>
+<a class="bd-link">
+    <h2 class="bd-link-name">
+        <figure class="bd-link-figure"><span class='bd-link-icon has-text-link is-size-4'><i class='fad fa-handshake'></i></span></figure>
+        Индивидуальные проекты
+    </h2>
+    <p class="bd-link-subtitle">Реализация любых идей и сценариев для ваших розыгрышей. Адаптация для трансляций и больших экранов.
+    </p>
+</a>
+        </nav>
+        <div class='mmb mt-4'>
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>    </div>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+    <!-- Yandex.Metrika counter -->
+    
+   
+    <!-- /Yandex.Metrika counter -->
+</html>
