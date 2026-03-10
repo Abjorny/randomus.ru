@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+<section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4">
+            <a class="no_decoration" href="/name">
+                Генератор фамилий, имен и отчеств            </a>
+        </h1>
+        <p class="subtitle is-6">с учетом реальной частоты их использования в современном мире</p>
+        <form id="name_generate" name="name_generate" action="/name" method="get" data-loadtext="Придумываем имена">
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Формат</label>
+                </div>
+                <div class="field">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select name="type"><option value="0" selected="">Русский. Полные ФИО</option><option value="1">Русский. Фамилия и имя</option><option value="2">Русский. Имя и Фамилия</option><option value="3">Русский. Фамилия и инициалы</option><option value="4">Русский. Инициалы и фамилия</option><option value="5">Русский. Имя</option><option value="101">English. Имя и Фамилия</option></select>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Пол</label>
+                </div>
+                <div class="field">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select name="sex"><option value="10">любой</option><option value="0">мужской</option><option value="1">женский</option></select>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Получить</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="name_count" name="count" class="input with_numeral" type="number" value="10" min="1" max="100" size="3" autocomplete="off" data-label="num_label">
+                                </div>
+                                <div class="level-item"><span id="num_label" data-titles="имя,имени,имен">имен</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field mt-4">
+                <div class="control">
+                    <button type="submit" class="button is-link is-medium is-fullwidth">Сгенерировать</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="content is-size-6 form-box rnd-no-outline rnd-background-white">
+    <p class=" mb-0">Варианты использования</p>
+    <div class="tags">
+        <span class="tag"><a href="/name?type=3&amp;sex=10&amp;count=100">100 фамилий с инициалами</a></span>
+        <span class="tag"><a href="/name?type=101&amp;sex=0&amp;count=5">5 английских мужских имен</a></span>
+        <span class="tag"><a href="/name?type=5&amp;sex=0&amp;count=1">имя для мальчика</a></span>
+        <span class="tag"><a href="/name?type=5&amp;sex=1&amp;count=1">имя для девочки</a></span>
+    </div>
+</div>
+    </div>
+
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                <p>Генерирует случайные имена, русские или английские, в различных форматах. Для
+    русских имен поддерживается генерация как полных ФИО, так и их различных вариаций, включая
+    инициалы.</p>
+<p>Мы используем списки имен и фамилий с учетом частоты их использования в современном мире.
+    Поэтому у нас нет экзотичных имен и их сочетаний, а результат максимально похож на список настоящих людей.</p>
+<p class="is-hidden-mobile">Полученные данные можно отформатировать в виде списка, используя различные разделители, в том
+    числе для вставки в электронные таблицы и документы.</p>                </div>
+                <div class="mmb mt-6">
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>                    </div>
+    </div>
+</div>
+
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

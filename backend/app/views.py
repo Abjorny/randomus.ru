@@ -27,6 +27,58 @@ class IndexView(APIView):
 class SimpleView(APIView):
     def get(sefl, request):
         return render(request, "simple.html")
+    
+class SpecialView(APIView):
+    def get(sefl, request):
+        return render(request, "special.html")
+    
+class ScreencastView(APIView):
+    def get(sefl, request):
+        return render(request, "screencast.html")
+    
+
+class NumberrView(APIView):
+    def get(sefl, request):
+        return render(request, "number_type-generate.html")
+    
+
+class NumbercView(APIView):
+    def get(sefl, request):
+        return render(request, "number_type-create.html")
+
+
+class LoginView(APIView):
+    def get(sefl, request):
+        return render(request, "login.html")
+
+class VkView(APIView):
+    def get(sefl, request):
+        return render(request, "vk.html")
+
+class WordleView(APIView):
+    def get(sefl, request):
+        return render(request, "wordle.html")
+
+class HoroscopeView(APIView):
+    def get(sefl, request):
+        return render(request, "horoscope.html")
+
+
+class PromocodeView(APIView):
+    def get(sefl, request):
+        return render(request, "promocode.html")
+
+class PasswordView(APIView):
+    def get(sefl, request):
+        return render(request, "password.html")
+
+class NameView(APIView):
+    def get(sefl, request):
+        return render(request, "name.html")
+
+class NicknameView(APIView):
+    def get(sefl, request):
+        return render(request, "nickname.html")
 
 class QuickView(APIView):
     def get(sefl, request):

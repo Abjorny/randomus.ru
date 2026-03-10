@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+<section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-4">
+        <div class="is-hidden-mobile">
+    <div class="buttons">
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/aries.svg"></span>
+                <span clsas="ml-0">Овен</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/taurus.svg"></span>
+                <span clsas="ml-0">Телец</span>
+            </a>
+                    <a class="button is-light " >
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/gemini.svg"></span>
+                <span clsas="ml-0">Близнецы</span>
+            </a>
+                    <a class="button is-light " >
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/cancer.svg"></span>
+                <span clsas="ml-0">Рак</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/leo.svg"></span>
+                <span clsas="ml-0">Лев</span>
+            </a>
+                    <a class="button is-light">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/virgo.svg"></span>
+                <span clsas="ml-0">Дева</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/libra.svg"></span>
+                <span clsas="ml-0">Весы</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/scorpio.svg"></span>
+                <span clsas="ml-0">Скорпион</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/sagittarius.svg"></span>
+                <span clsas="ml-0">Стрелец</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/capricorn.svg"></span>
+                <span clsas="ml-0">Козерог</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/aquarius.svg"></span>
+                <span clsas="ml-0">Водолей</span>
+            </a>
+                    <a class="button is-light ">
+                <span class="icon ml-0 mr-2" style="opacity: 65%"><img src="https://static.randomus.ru/static/resource/img/zodiac/pisces.svg"></span>
+                <span clsas="ml-0">Рыбы</span>
+            </a>
+            </div>
+    <div class="buttons">
+                    <a class="button is-light">Общий</a>
+                    <a class="button is-light">Любовный</a>
+                    <a class="button is-light">Семейный</a>
+                    <a class="button is-light">Финансовый</a>
+                    <a class="button is-light">Здоровье</a>
+                    <a class="button is-light">Социальный</a>
+            </div>
+</div>
+
+<div class="is-hidden-tablet">
+    <div class="select mr-2">
+        <select onchange="location.href=this.value">
+                            <option>Выбрать знак</option>
+                                        <option value="/horoscope/aries/common/today">
+                    Овен                </option>
+                            <option value="/horoscope/taurus/common/today">
+                    Телец                </option>
+                            <option value="/horoscope/gemini/common/today">
+                    Близнецы                </option>
+                            <option value="/horoscope/cancer/common/today">
+                    Рак                </option>
+                            <option value="/horoscope/leo/common/today">
+                    Лев                </option>
+                            <option value="/horoscope/virgo/common/today">
+                    Дева                </option>
+                            <option value="/horoscope/libra/common/today">
+                    Весы                </option>
+                            <option value="/horoscope/scorpio/common/today">
+                    Скорпион                </option>
+                            <option value="/horoscope/sagittarius/common/today">
+                    Стрелец                </option>
+                            <option value="/horoscope/capricorn/common/today">
+                    Козерог                </option>
+                            <option value="/horoscope/aquarius/common/today">
+                    Водолей                </option>
+                            <option value="/horoscope/pisces/common/today">
+                    Рыбы                </option>
+                    </select>
+    </div>
+    <div class="select">
+        <select onchange="location.href=this.value">
+                            <option>Выбрать вид</option>
+                                        <option value="/horoscope/aries/common/today">
+                    Общий                </option>
+                            <option value="/horoscope/aries/love/today">
+                    Любовный                </option>
+                            <option value="/horoscope/aries/family/today">
+                    Семейный                </option>
+                            <option value="/horoscope/aries/fiscal/today">
+                    Финансовый                </option>
+                            <option value="/horoscope/aries/health/today">
+                    Здоровье                </option>
+                            <option value="/horoscope/aries/social/today">
+                    Социальный                </option>
+                    </select>
+    </div>
+</div>    </div>
+
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                <h3>Генератор гороскопов</h3>
+<p>Наш сервис генерирует гороскопы и астрологические прогнозы для всех знаков зодиака. Результат не претендует на точность или достоверность, и предназначен только для развлечения.
+</p><p>Не воспринимайте эти гороскопы всерьез и самостоятельно принимайте важные решения.
+
+                </p></div>
+                <div class="mmb mt-6">
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>                    </div>
+    </div>
+</div>
+
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

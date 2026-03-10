@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+<section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a href="/promocode" class="no_decoration">Генератор промокодов</a></h1>
+        <p class="subtitle is-6">для акций и распродаж</p>
+        <form id="code_generate" name="code_generate"  class="form" data-loadtext="Генерируем промокоды">
+            <div class="field mb-1">
+                <div class="mb-1">
+                    <label class="label">Длина промокода</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="length" name="length" class="input with_numeral" type="number" value="8" min="2" max="30" pattern="[0-9]{2}" maxlength="2" size="2" autocomplete="off" data-maxvalue="30" data-label="num_label" required="" oninput="update_variants()">
+                                </div>
+                                <div class="level-item"><span id="num_label" data-titles="символ,символа,символов">символов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="example_block" class="field">
+                <div class="label is-small">
+                    <label class="has-text-weight-normal has-text-grey">пример такого промкода</label>
+                </div>
+                <div id="example_div" class="field copy_button" data-clipboard-text="test">
+                    <code id="example" class="is-size-5"></code>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Количество</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left is-flex-direction-row">
+                                <div class="level-item">
+                                    <input id="code_count" name="count" class="input with_numeral" type="number" value="20" min="1" max="1000" size="3" autocomplete="off" data-label="count_label">
+                                </div>
+                                <div class="level-item"><span id="count_label" data-titles="код,кода,кодов">кодов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Префикс промокода</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="level is-mobile">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <input id="code_prefix" name="prefix" class="input" value="" maxlength="10" autocomplete="off" oninput="update_variants()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-1">
+                <label class="label">Использовать</label>
+            </div>
+
+                            <div class="field">
+                    <label class="checkbox">
+                        <input id="number" name="number" type="checkbox" checked="" value="1" data-symbols="0123456789" oninput="update_variants()">
+                        Цифры                    </label>
+                                            <p class="help has-text-grey is-family-monospace">0123456789</p>
+                                    </div>
+                            <div class="field">
+                    <label class="checkbox">
+                        <input id="uppercase" name="uppercase" type="checkbox" checked="" value="1" data-symbols="ABCDEFGHIJKLMNOPQRSTUVWXYZ" oninput="update_variants()">
+                        Прописные латинские буквы                    </label>
+                                            <p class="help has-text-grey is-family-monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                                    </div>
+                            <div class="field">
+                    <label class="checkbox">
+                        <input id="lowercase" name="lowercase" type="checkbox" value="1" data-symbols="abcdefghijklmnopqrstuvwxyz" oninput="update_variants()">
+                        Строчные латинские буквы                    </label>
+                                            <p class="help has-text-grey is-family-monospace">abcdefghijklmnopqrstuvwxyz</p>
+                                    </div>
+                            <div class="field">
+                    <label class="checkbox">
+                        <input id="ru_uppercase" name="ru_uppercase" type="checkbox" value="1" data-symbols="АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" oninput="update_variants()">
+                        Прописные русские буквы                    </label>
+                                            <p class="help has-text-grey is-family-monospace">АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ</p>
+                                    </div>
+                            <div class="field">
+                    <label class="checkbox">
+                        <input id="ru_lowercase" name="ru_lowercase" type="checkbox" value="1" data-symbols="абвгдеёжзийклмнопрстуфхцчшщъыьэюя" oninput="update_variants()">
+                        Строчные русские буквы                    </label>
+                                            <p class="help has-text-grey is-family-monospace">абвгдеёжзийклмнопрстуфхцчшщъыьэюя</p>
+                                    </div>
+            
+            <input name="action" value="generate&quot;" type="hidden">
+            <div class="field mt-4">
+                <div class="control">
+                    <button type="submit" class="button is-link is-medium is-fullwidth">Сгенерировать</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="content is-size-6 form-box notification is-info is-light is-paddingless has-background-white">
+    <p><span class="icon icon_first mr-2"><svg class="svg-inline--fa fa-shield-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M269.4 2.9C265.2 1 260.7 0 256 0s-9.2 1-13.4 2.9L54.3 82.8c-22 9.3-38.4 31-38.3 57.2c.5 99.2 41.3 280.7 213.6 363.2c16.7 8 36.1 8 52.8 0C454.7 420.7 495.5 239.2 496 140c.1-26.2-16.3-47.9-38.3-57.2L269.4 2.9zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg><!-- <i class="fas fa-shield-check"></i> --></span>Проверяя 1 000 000 вариантов в секунду на перебор всех
+        комбинаций уйдет:<br>
+        <span id="interval"></span>
+    </p>
+</div>
+    </div>
+
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                <p>Поможет сгенерировать промокоды для маркетинговых акций и распродаж. Вы можете
+    самостоятельно настроить список используемых символов, длину кода и его префикс. Созданные коды
+    будет содержать как минимум один знак из каждой группы символов, и не будут повторяться.</p>
+<p class="is-hidden-mobile">Результат можно отформатировать в виде списка, используя
+    различные разделители, в том числе для вставки в электронные таблицы и документы.</p>
+<p>Информация под формой показывает, как комбинация используемых символов и длины кода влияет на его
+    устойчивость к перебору.</p>                </div>
+                <div class="mmb mt-6">
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>                    </div>
+    </div>
+</div>
+
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

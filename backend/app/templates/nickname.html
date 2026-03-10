@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+<div id="all_content" class="container">
+  
+    <section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+
+        <div class="columns is-gap-4 is-variable">
+    <div class="column is-narrow">
+        <div class="notification box form-box">
+    <div class="content">
+        <h1 class="title is-4"><a class="no_decoration">Генератор случайных ников</a></h1>
+        <p class="subtitle is-6">Подобрать случайный никнейм или логин на основе сочетаемости символов в литературных текстах.</p>
+        <form id="quick_form" name="quick"class="form" data-loadtext="Придумываем никнеймы">
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Длина ника</label>
+                </div>
+
+                <div class="field is-flex is-align-content-stretch">
+                    <div class="range_label mr-2">От</div>
+                    <div class="control">
+                        <div class="select">
+                            <select name="min_len"><option value="3">3</option><option value="4" selected="">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>                        </div>
+                    </div>
+                    <div class="range_label mx-2">до</div>
+                    <div class="control">
+                        <div class="select">
+                            <select name="max_len"><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>                        </div>
+                    </div>
+                    <div class="range_label ml-2">букв</div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="mb-1">
+                    <label class="label">Первая буква</label>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select name="first_letter"><option value="-1" selected="">любая</option><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option><option value="4">E</option><option value="5">F</option><option value="6">G</option><option value="7">H</option><option value="8">I</option><option value="9">J</option><option value="10">K</option><option value="11">L</option><option value="12">M</option><option value="13">N</option><option value="14">O</option><option value="15">P</option><option value="16">Q</option><option value="17">R</option><option value="18">S</option><option value="19">T</option><option value="20">U</option><option value="21">V</option><option value="22">W</option><option value="23">X</option><option value="24">Y</option><option value="25">Z</option></select>                        </div>
+                    </div>
+                </div>
+            </div>
+            <input name="action" value="generate" type="hidden">
+            <div class="field mt-4">
+                <div class="control">
+                    <button type="submit" class="button is-link is-medium is-fullwidth">Сгенерировать</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>    </div>
+
+    <div class="column">
+        <div class="container">
+                                        <div class="content mb-0">
+                                </div>
+                <div class="mmb mt-6">
+<div id="yandex_rtb_R-A-715785-6"></div>
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-715785-6",
+            "renderTo": "yandex_rtb_R-A-715785-6",
+            "type": "feed"
+        })
+    })
+</script></div>                    </div>
+    </div>
+</div>
+
+    </section>
+
+    </div>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>

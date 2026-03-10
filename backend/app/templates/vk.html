@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#"  lang="ru">
+{% include "includes/head.html" %}
+<body>
+{% include "includes/rand-modal.html" %}
+{% include "includes/nav.html" %}
+<section id="rnd_main_section" class="section is-paddingless-mobile pb-4">
+
+        <div class="columns">
+    <div class="column is-8">
+        <div class="content">
+    <h1 class="title is-4">Конкурс ВК</h1>
+    <p class="subtitle is-6">
+        Определяем победителей для конкурсов и розыгрышей ВКонтакте</p>
+    <p class="mb-1">Учитываем в произвольных комбинациях:</p>
+    <ul class="mt-0">
+        <li>наличие лайка;</li>
+        <li>наличие репоста;</li>
+        <li>наличие комментария к записи;</li>
+        <li>нахождение в друзьях (подписчиках, если конкурс проводит сообщество).</li>
+    </ul>
+    <p class="mb-2">Конкурс получает постоянную страницу (<a href="https://randomus.ru/vk1">пример</a>).
+        Мы бессрочно храним условия конкурса и его результаты.</p>
+
+    <p class="mb-2">После подведения итогов, вручную или в заданное время, страница конкурса блокируется от всех изменений.</p>
+    </div>
+        								<div class="notification box form-box-wide">
+									<div class="media">
+										<div class="media-left is-hidden-mobile">
+                                            <span class="icon  is-size-4"><svg class="svg-inline--fa fa-right-to-bracket" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="right-to-bracket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><g class="fa-duotone-group"><path class="fa-secondary" fill="currentColor" d="M320 448c0-17.7 14.3-32 32-32l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32z"></path><path class="fa-primary" fill="currentColor" d="M340.7 228.7L217.9 105.9c-6.4-6.4-15-9.9-24-9.9c-18.7 0-33.9 15.2-33.9 33.9l0 62.1L32 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l128 0 0 62.1c0 18.7 15.2 33.9 33.9 33.9c9 0 17.6-3.6 24-9.9L340.7 283.3c7.2-7.2 11.3-17.1 11.3-27.3s-4.1-20.1-11.3-27.3z"></path></g></svg><!-- <i class="fad fa-right-to-bracket"></i> --></span>										</div>
+										<div class="media-content content">
+											<p><strong>Для продолжения необходимо авторизоваться</strong></p>
+											<p>Вы сможете управлять созданными страницами в личном кабинете. Регистрация не требуется, сразу пришлем ссылку для входа.
+											</p>
+											<div class="container">
+												<form action="/login" method="post" class="form" data-loadtext="Отправляем письмо для авторизации">
+													<div class="field">
+														<label class="label">Эл. почта</label>
+														<div class="control has-icons-left">
+															<input name="email" class="input" type="email" required="">
+															<span class="icon is-small is-left"><svg class="svg-inline--fa fa-envelope" aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path></svg><!-- <i class="far fa-envelope"></i> --></span>														</div>
+                                                        <p class="help">Отправляем только транзакционные сообщения. Остальные пользователи не увидят ваш почтовый адрес.</p>
+													</div>
+                                                    <div id="add_email_div" class="field is-hidden">
+                                                        <div class="field">
+                                                            <label class="checkbox">
+                                                                <input name="only_key" type="checkbox" value="1">
+                                                                отправить только код авторизации
+                                                                <p class="help">Используйте, если получаете сообщение, что токен уже недействителен (почтовый робот или антиврус успели деактивировать ссылку).</p>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <input name="action" value="login_email_vk" type="hidden">
+                                                    <input name="check" value="wOaEUDNIke" type="hidden">
+													<div class="field">
+														<div class="buttons">
+															<button type="submit" class="button is-link">Отправить данные для входа</button>
+                                                            <a class="button is-white visible-switch" title="Дополнительные варианты для авторизации" data-target="add_email_div"><span class="icon has-text-grey-light"><svg class="svg-inline--fa fa-gears" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="gears" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><g class="fa-duotone-group"><path class="fa-secondary" fill="currentColor" d="M529.7 506.7c-8.7 3.7-18.6 .9-25-6.2l-19.8-22.2c-6.8 1.1-13.8 1.7-20.9 1.7s-14.1-.6-20.9-1.7l-19.8 22.2c-6.3 7.1-16.2 9.9-25 6.2c-5.3-2.3-10.5-4.8-15.5-7.6l-5.4-3.1c-5-3-9.9-6.3-14.6-9.8c-7.6-5.7-10.1-15.7-7.1-24.7l9.3-28.2c-8.8-10.7-16-23-20.9-36.2L315.1 391c-9.3-1.9-16.7-9.1-17.8-18.5c-.8-6.7-1.2-13.5-1.2-20.4s.4-13.7 1.2-20.4c1.1-9.4 8.6-16.6 17.8-18.5l29.1-6.1c5-13.3 12.1-25.5 20.9-36.2l-9.3-28.2c-3-9-.5-19 7.1-24.7c4.7-3.5 9.6-6.8 14.6-9.9l5.2-3c5-2.8 10.2-5.3 15.6-7.6c8.7-3.7 18.6-.9 25 6.2l19.8 22.2c6.8-1.1 13.8-1.7 20.9-1.7s14.1 .6 20.9 1.7l19.8-22.2c6.3-7.1 16.2-9.9 25-6.2c5.3 2.3 10.5 4.8 15.6 7.6l5.3 3c5.1 3 9.9 6.3 14.6 9.9c7.6 5.7 10.1 15.7 7.1 24.7l-9.3 28.2c8.8 10.7 16 23 20.9 36.2l29.1 6.1c9.3 1.9 16.7 9.1 17.8 18.5c.8 6.7 1.2 13.5 1.2 20.4s-.4 13.7-1.2 20.4c-1.1 9.4-8.6 16.6-17.8 18.5L583.9 397c-5 13.3-12.1 25.5-20.9 36.2l9.3 28.2c3 9 .5 19-7.1 24.7c-4.7 3.5-9.5 6.8-14.6 9.8l-5.4 3.1c-5 2.8-10.2 5.3-15.5 7.6zM416 352a48 48 0 1 0 96 0 48 48 0 1 0 -96 0z"></path><path class="fa-primary" fill="currentColor" d="M314.7 110.3c3.7 8.7 .9 18.6-6.2 25l-22.2 19.8c1.1 6.8 1.7 13.8 1.7 20.9s-.6 14.1-1.7 20.9l22.2 19.8c7.1 6.3 9.9 16.2 6.2 25c-2.3 5.3-4.8 10.5-7.6 15.5l-3.1 5.4c-3 5-6.3 9.9-9.8 14.6c-5.7 7.6-15.7 10.1-24.7 7.1l-28.2-9.3c-10.7 8.8-23 16-36.2 20.9L199 324.9c-1.9 9.3-9.1 16.7-18.5 17.8c-6.7 .8-13.5 1.2-20.4 1.2s-13.7-.4-20.4-1.2c-9.4-1.1-16.6-8.6-18.5-17.8L115 295.9c-13.3-5-25.5-12.1-36.2-20.9l-28.2 9.3c-9 3-19 .5-24.7-7.1c-3.5-4.7-6.8-9.6-9.9-14.6l-3-5.2c-2.8-5-5.3-10.2-7.6-15.6c-3.7-8.7-.9-18.6 6.2-25l22.2-19.8C32.6 190.1 32 183.1 32 176s.6-14.1 1.7-20.9L11.5 135.3c-7.1-6.3-9.9-16.2-6.2-25c2.3-5.3 4.8-10.5 7.6-15.6l3-5.3c3-5.1 6.3-9.9 9.9-14.6c5.7-7.6 15.7-10.1 24.7-7.1l28.2 9.3c10.7-8.8 23-16 36.2-20.9L121 27.1c1.9-9.3 9.1-16.7 18.5-17.8C146.3 8.4 153.1 8 160 8s13.7 .4 20.4 1.2c9.4 1.1 16.6 8.6 18.5 17.8L205 56.1c13.3 5 25.5 12.1 36.2 20.9l28.2-9.3c9-3 19-.5 24.7 7.1c3.5 4.7 6.8 9.5 9.8 14.6l3.1 5.4c2.8 5 5.3 10.2 7.6 15.5zM160 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"></path></g></svg><!-- <i class="fad fa-gears"></i> --></span>                                                                <span class="has-text-grey is-size-7">Больше вариантов</span></a>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+
+    </div>
+    <div class="column is-4">
+                <div class="mmb">
+<div id="yandex_rtb_R-A-715785-1" class="min-height-block"></div>
+<script>window.yaContextCb.push(()=>{
+        Ya.Context.AdvManager.render({
+            renderTo: 'yandex_rtb_R-A-715785-1',
+            blockId: 'R-A-715785-2'
+        })
+    })</script></div>    </div>
+</div>
+    </section>
+        {% include "includes/footer.html" %}
+    </div>
+{% include "includes/scripts.html" %}
+</body>
+</html>
