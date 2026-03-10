@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from app.models import Number
+from app.models import Number, Settings
 import random
 
 class GenerateNumberView(APIView):
@@ -21,8 +21,19 @@ class GenerateNumberView(APIView):
         })
 
 class IndexView(APIView):
-    def get(sefl, request):
-        return render(request, "index.html")
+    def get(self, request):
+        settings = Settings.get_solo()
+
+        formatted_settings = {
+            "age": f"{settings.age:,}".replace(",", " "),
+            "number": f"{settings.number:,}".replace(",", " "),
+            "vk": f"{settings.vk:,}".replace(",", " "),
+            "name": f"{settings.name:,}".replace(",", " "),
+            "nick": f"{settings.nick:,}".replace(",", " "),
+            "pay": f"{settings.pay:,}".replace(",", " "),
+        }
+
+        return render(request, "index.html", {"settings": formatted_settings})
 
 class SimpleView(APIView):
     def get(sefl, request):
@@ -35,17 +46,14 @@ class SpecialView(APIView):
 class ScreencastView(APIView):
     def get(sefl, request):
         return render(request, "screencast.html")
-    
 
 class NumberrView(APIView):
     def get(sefl, request):
         return render(request, "number_type-generate.html")
-    
 
 class NumbercView(APIView):
     def get(sefl, request):
         return render(request, "number_type-create.html")
-
 
 class LoginView(APIView):
     def get(sefl, request):
@@ -62,7 +70,6 @@ class WordleView(APIView):
 class HoroscopeView(APIView):
     def get(sefl, request):
         return render(request, "horoscope.html")
-
 
 class PromocodeView(APIView):
     def get(sefl, request):
