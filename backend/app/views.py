@@ -20,6 +20,41 @@ class GenerateNumberView(APIView):
             "updated_count": updated_count
         })
 
+
+class PaymentView(APIView):
+    def get(sefl, request):
+        return render(request, "payment.html")
+  
+
+class InfoOfferView(APIView):
+    def get(sefl, request):
+        return render(request, "info/offer.html")
+  
+class InfoFaqView(APIView):
+    def get(sefl, request):
+        return render(request, "info/faq.html")
+  
+class InfoAboutView(APIView):
+    def get(sefl, request):
+        return render(request, "info/about.html")
+  
+class InfoHowtoView(APIView):
+    def get(sefl, request):
+        return render(request, "info/howto.html")
+    
+class InfoIdeasView(APIView):
+    def get(sefl, request):
+        return render(request, "info/ideas.html")
+
+class InfoPayView(APIView):
+    def get(sefl, request):
+        return render(request, "info/pay.html")
+
+class InfoSpecialView(APIView):
+    def get(sefl, request):
+        return render(request, "info/special.html")
+    
+
 class IndexView(APIView):
     def get(self, request):
         settings = Settings.get_solo()

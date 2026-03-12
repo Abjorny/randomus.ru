@@ -19,6 +19,16 @@ urlpatterns = [
     path("promocode/", views.PromocodeView.as_view(), name = "promocode"),
     path("horoscope/", views.HoroscopeView.as_view(), name = "horoscope"),
     path("wordle/", views.WordleView.as_view(), name = "wordle"),
-path("vk/", views.VkView.as_view(), name = "vk"),
-path("login/", views.LoginView.as_view(), name = "login"),
+    path("vk/", views.VkView.as_view(), name = "vk"),
+    path("login/", views.LoginView.as_view(), name = "login"),
+    path("payment_type-donate/", views.PaymentView.as_view(), name = "payment"),
+
+
+    path("info/offer/", views.InfoOfferView.as_view(), name = "offer"),
+    path("info/faq/", views.InfoFaqView.as_view(), name = "faq"),
+    path("info/about/", views.InfoAboutView.as_view(), name = "about"),
+    path("info/howto/", views.InfoHowtoView.as_view(), name = "howto"),
+    path("info/ideas/", views.InfoIdeasView.as_view(), name = "ideas"),
+    path("info/pay/", views.InfoPayView.as_view(), name = "pay"),
+    path("info/special/", views.InfoSpecialView.as_view(), name = "special"),
 ]
