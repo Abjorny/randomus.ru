@@ -60,7 +60,7 @@ class IndexView(APIView):
         settings = Settings.get_solo()
 
         formatted_settings = {
-            "age": f"{settings.age:,}".replace(",", " "),
+            "age": f"{settings.age}",
             "number": f"{settings.number:,}".replace(",", " "),
             "vk": f"{settings.vk:,}".replace(",", " "),
             "name": f"{settings.name:,}".replace(",", " "),
