@@ -43,8 +43,8 @@ class Settings(models.Model):
         help_text="Сколько доступно случайных ников"
     )
 
-    pay = models.PositiveIntegerField(
-        default=800,
+    pay = models.CharField(
+        max_length=20,
         verbose_name="Разыграно",
         help_text="Сколько уже разыграно"
     )

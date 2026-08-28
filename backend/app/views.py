@@ -65,7 +65,7 @@ class IndexView(APIView):
             "vk": f"{settings.vk:,}".replace(",", " "),
             "name": f"{settings.name:,}".replace(",", " "),
             "nick": f"{settings.nick:,}".replace(",", " "),
-            "pay": f"{settings.pay:,}".replace(",", " "),
+            "pay": f"{settings.pay}",
         }
 
         return render(request, "index.html", {"settings": formatted_settings})
